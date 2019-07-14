@@ -28,7 +28,7 @@ export default class Welcome extends Component {
   };
 
   saveUser = async userName => {
-    await AsyncStorage.setItem('@Gymhuber', userName);
+    await AsyncStorage.setItem('@Gymhuber:userName', userName);
   };
 
   signIn = async () => {
