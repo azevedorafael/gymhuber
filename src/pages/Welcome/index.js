@@ -1,30 +1,30 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 import {
   View,
   Text,
   TextInput,
   TouchableOpacity,
   StatusBar,
-  ActivityIndicator,
-} from 'react-native';
+  ActivityIndicator
+} from "react-native";
 
-import styles from './styles';
+import styles from "./styles";
 
-import api from '~/services/api';
-import AsyncStorage from "@react-native-community/async-storage";
+import api from "~/services/api";
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default class Welcome extends Component {
   static propTypes = {
     navigation: PropTypes.shape({
-      navigate: PropTypes.func
-    }).isRequired,
+      navigate: PropTypes.func,
+    }).isRequired
   };
 
   state = {
-    userName: "",
+    userName: '',
     loading: false,
-    error: false,
+    error: false
   };
 
   checkUserExists = async userName => {
@@ -34,7 +34,7 @@ export default class Welcome extends Component {
   };
 
   saveUser = async userName => {
-    await AsyncStorage.setItem('@Gymhuber:userName', userName);
+    await AsyncStorage.setItem("@Gymhuber:userName", userName);
   };
 
   signIn = async () => {
@@ -47,11 +47,11 @@ export default class Welcome extends Component {
       await this.checkUserExists(userName);
       await this.saveUser(userName);
 
-      navigation.navigate('Repositories');
+      navigation.navigate("Repositories");
     } catch (err) {
       this.setState({ loading: false, error: true });
 
-      console.tron.log("User not found!");
+      console.tron.log('User not found!');
     }
   };
 
