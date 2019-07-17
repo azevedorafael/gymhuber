@@ -6,6 +6,7 @@ import {
   FlatList,
   ActivityIndicator,
   TouchableOpacity,
+  TextInput
 } from 'react-native';
 import { withNavigation } from "react-navigation";
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -18,7 +19,9 @@ import api from "~/services/api";
 class Commits extends Component {
   state = {
     data: [],
-    loading: true
+    loading: true,
+    search: null,
+    commits: []
   };
 
   async componentDidMount() {
@@ -44,8 +47,23 @@ class Commits extends Component {
         <TouchableOpacity onPress={this.back}>
           <Icon name="arrow-left" size={24} style={styles.icon} />
         </TouchableOpacity>
+        <TextInput
+          style={styles.input}
+          placeholder={"Live search"}
+          onChangeText={text => {
+            this.setState({ search: text });
+          }}
+          value={this.state.search}
+        />
         <FlatList
-          data={data}
+          data={data.filter(commit => {
+            return (
+              !this.state.search ||
+              commit.commit.message
+                .toLowerCase()
+                .indexOf(this.state.search.toLowerCase()) > -1
+            );
+          })}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => <CommitItem commit={item} />}
         />

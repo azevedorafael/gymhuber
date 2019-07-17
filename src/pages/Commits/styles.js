@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 import { metrics } from '~/styles';
-import { ICONS } from 'jest-util/build/specialChars';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,6 +14,19 @@ const styles = StyleSheet.create({
     marginTop: metrics.baseMargin,
     marginRight: metrics.baseMargin,
     marginLeft: metrics.baseMargin
+  },
+
+  input: {
+    marginTop: metrics.baseMargin,
+    marginRight: metrics.baseMargin,
+    marginLeft: metrics.baseMargin,
+    padding: metrics.basePadding / 10,
+    paddingHorizontal: 20,
+    fontSize: 16,
+    color: '#444',
+    borderBottomWidth: 1,
+    borderColor: '#ddd',
+    backgroundColor: '#F5F5F5'
   }
 });
 
