@@ -20,7 +20,7 @@ class Commits extends Component {
     const userName = await AsyncStorage.getItem('@Gymhuber:userName');
     const { data } = await api.get(`repos/${userName}/${repoName}/commits`);
 
-    this.setState({ data, loading: false });
+    this.setState({ data: data.slice(0, 19), loading: false });
   }
 
   render() {
