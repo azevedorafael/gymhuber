@@ -15,7 +15,18 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   },
 
+  mainContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
+
   infoContainer: {
+    flexDirection: "row",
+    marginTop: metrics.baseMargin
+  },
+
+  buttonContainer: {
     flexDirection: "row",
     marginTop: metrics.baseMargin
   },
@@ -34,7 +45,16 @@ const styles = StyleSheet.create({
     color: colors.dark,
     fontSize: 12,
     marginLeft: metrics.baseMargin / 2,
-  }
+  },
+
+  button: {
+    backgroundColor: colors.primary,
+    borderRadius: metrics.baseRadius,
+    width: 80,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default styles;
