@@ -14,11 +14,8 @@ const CommitItem = ({ commit, navigation }) => (
 );
 
 CommitItem.propTypes = {
-  repository: PropTypes.shape({
-    full_name: PropTypes.string,
-    stargazers_count: PropTypes.number,
-    forks_count: PropTypes.number,
-    watchers_count: PropTypes.number,
+  commit: PropTypes.shape({
+    message: PropTypes.string
   }).isRequired,
 };
 
